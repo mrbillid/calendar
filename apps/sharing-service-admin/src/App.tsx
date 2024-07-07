@@ -5,6 +5,10 @@ import { theme } from "./theme/theme";
 import Login from "./Login";
 import "./App.scss";
 import Dashboard from "./pages/Dashboard";
+import { SharingInformationList } from "./sharingInformation/SharingInformationList";
+import { SharingInformationCreate } from "./sharingInformation/SharingInformationCreate";
+import { SharingInformationEdit } from "./sharingInformation/SharingInformationEdit";
+import { SharingInformationShow } from "./sharingInformation/SharingInformationShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -30,7 +34,15 @@ const App = (): React.ReactElement => {
         theme={theme}
         dashboard={Dashboard}
         loginPage={Login}
-      ></Admin>
+      >
+        <Resource
+          name="SharingInformation"
+          list={SharingInformationList}
+          edit={SharingInformationEdit}
+          create={SharingInformationCreate}
+          show={SharingInformationShow}
+        />
+      </Admin>
     </div>
   );
 };
